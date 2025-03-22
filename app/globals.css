@@ -25,3 +25,75 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.section-body {
+  background: linear-gradient(to right, #ff3131, #ff914d);
+  border-radius: 24px; 
+  height: 100px;
+  display: flex;
+
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.section-text {
+  font-family: "ABeeZee", sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 1.125rem; 
+  padding: 20px 24px; 
+}
+
+.section-img {
+  position: relative;
+  z-index: 10;
+  height: 200px;
+  width: 200px;
+}
+
+.section-headings {
+  font-family: "ABeeZee", sans-serif;
+  color: #ff3131;
+  font-weight: bold;
+  font-size: 1.125rem; 
+  text-align: left;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.ul-styles {
+  list-style: none;
+  padding-left: 32px; 
+  width: 700px;
+}
+
+.ul-styles li {
+  margin-bottom: 8px; 
+}
+
+.checkbox-styles {
+  appearance: none;
+  border: 2px solid #ff3131;
+  border-radius: 2px;
+  width: 16px; 
+  height: 16px; 
+  margin-right: 16px; 
+}
+
+.checkbox-styles:checked {
+  background-color: #ff3131;
+  border-color: transparent;
+}
+
+.ul-text {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em; 
+  text-align: left;
+}
+
+.para {
+  font-family: "Montserrat", sans-serif;
+  padding-top: 16px; 
+  text-align: center;
+}

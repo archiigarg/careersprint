@@ -1,73 +1,44 @@
 "use client"
-import Image from 'next/image';
-import React from 'react'
-import { WebBar } from '../WebBar';
-import section1Img from "@/public/section1.svg";
-import section2Img from "@/public/section2.svg";
-import section3Img from "@/public/section3.svg";
-import section4Img from "@/public/section4.svg";
-import section5Img from "@/public/section5.svg";
-import section6Img from "@/public/section6.svg";
-import section7Img from "@/public/section7.svg";
-import { useRouter } from 'next/navigation';
-const Homie = () =>{ 
-  const router = useRouter();
-  const technical = () => {
-    void router.push("/web/technicalskills");
-  };
-  const network = () => {
-    void router.push("/web/networking");
-  };
-  const certification = () => {
-    void router.push("/web/certifications");
-  };
-  const resume = () => {
-    void router.push("/web/resumebuilding");
-  };
-  const interview = () => {
-    void router.push("/web/interviewpreparation");
-  };
-  const softskill= () => {
-    void router.push("/web/softskills");
-  };
-  return( 
-     
-    <section className='h-fit bg-white overflow-hidden'>
-      <h1 className=' font-montserrat font-bold bg-gradient-to-r from-[#ff3131] to-[#ff914d] text-transparent bg-clip-text text-center ml-44 text-5xl mt-10 px-[280px]'>Hi there, what's your current focus for the day?</h1>
-      <div className='flex flex-row'>
-        <WebBar/>
-        <div className='flex flex-col items-center justify-start gap-6 py-16 px-[380px]'>
-          <div className='section-body'>
-            <button className='section-text' onClick={technical}>SECTION 1 : TECHNICAL SKILLS</button>
-            <Image src={section1Img} alt="section1" className='section-img'/>
+import { Button } from "@/app/components/ui/button";
+import { WebBar } from "../WebBar";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-orange-200 to-orange-50 text-gray-900">
+      <WebBar/>
+      <section className="text-center py-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-orange-100 text-orange-700 px-4 py-2 inline-block rounded-full text-sm mb-4">
+            Take Full Control of Your Task
           </div>
-          <div className='section-body'>
-            <button className='section-text' onClick={softskill}>SECTION 2 : SOFT SKILLS</button>
-            <Image src={section2Img} alt="section2" className='section-img'/>
-          </div>
-          <div className='section-body'>
-            <button className='section-text'>SECTION 3 : PROJECT EXPERIENCE</button>
-            <Image src={section3Img} alt="section3" className='section-img'/>
-          </div>
-          <div className='section-body'>
-            <button className='section-text' onClick={interview}>SECTION 4 : INTERVIEW PREPARATION</button>
-            <Image src={section4Img} alt="section4" className='section-img'/>
-          </div>
-          <div className='section-body'>
-            <button className='section-text' onClick={certification}>SECTION 5 : CERTIFICATIONS</button>
-            <Image src={section5Img} alt="section5" className='section-img'/>
-          </div>
-          <div className='section-body'>
-            <button className='section-text' onClick={resume}>SECTION 6 : RESUME BUILDING</button>
-            <Image src={section6Img} alt="section6" className='section-img'/>
-          </div>
-          <div className='section-body'>
-            <button className='section-text' onClick={network}>SECTION 7 : NETWORKING</button>
-            <Image src={section7Img} alt="section" className='section-img'/>
+          <h1 className="text-4xl font-bold mb-4">Empowering Teams, One Task at a Time, Every Day</h1>
+          <p className="text-gray-600 mb-6">
+            Mondai was created to meet the need for a fast, intuitive, and flexible task management platform that helps teams achieve maximum productivity.
+          </p>
+          <div className="space-x-4">
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6">Download App</Button>
+            <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-100">Talk to Sales</Button>
           </div>
         </div>
-      </div>
-    </section>
-    )}
-;
-export default Homie;
+      </section>
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center py-12 px-6 bg-white shadow-md max-w-5xl mx-auto rounded-lg">
+        <div>
+          <h2 className="text-2xl font-bold">2015+</h2>
+          <p className="text-gray-600">Product release</p>
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold">1500+</h2>
+          <p className="text-gray-600">People building</p>
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold">500+</h2>
+          <p className="text-gray-600">Countries use Mondai</p>
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold">300K+</h2>
+          <p className="text-gray-600">Customers rely on us</p>
+        </div>
+      </section>
+    </div>
+  );
+}

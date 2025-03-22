@@ -22,14 +22,12 @@ export const WebBar = () => {
       onMouseLeave={() => setIsExpanded(false)}
     >
       <div className="flex flex-col items-center py-10 h-full gap-8 ">
-        {/* Logo */}
         {isExpanded && <button className='text-2xl font-bold text-orange-500 ' >CareerSprint</button>}
         
-        {/* Menu Items */}
         <nav className="flex flex-col items-center w-full gap-6 px-6 ">
           {[
             { icon: homeIcon, label: 'Home', path: '/web/home' },
-            { icon: sectionsIcon, label: 'Sections', path: '#' },
+            { icon: sectionsIcon, label: 'Sections', path: '/web/sections' },
             { icon: progressIcon, label: 'Progress', path: '#' },
             { icon: profileIcon, label: 'Profile', path: '/web/profilepage' },
             { icon: moreIcon, label: 'More', path: '#' },
@@ -45,7 +43,6 @@ export const WebBar = () => {
           ))}
         </nav>
         
-        {/* User Profile */}
         <div className="mt-auto flex items-center w-full px-6 pb-8">
           <Image src={profileIcon} alt="User" className="h-16 w-16 rounded-full" />
           {isExpanded && <span className="ml-4 text-lg font-medium">Your Name</span>}

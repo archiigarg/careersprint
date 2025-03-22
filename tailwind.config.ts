@@ -24,7 +24,7 @@ const config: Config = {
     },
     extend: {
       colors: {
-        border: "#e2e8f0", // Change to a real color instead of hsl(var(--border))
+        border: "#e2e8f0", 
         input: "#e2e8f0",
         ring: "#4c51bf",
         background: "#ffffff",
