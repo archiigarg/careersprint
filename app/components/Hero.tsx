@@ -20,7 +20,10 @@ export const Hero = () => {
             <p className="text-base lg:text-lg text-white tracking-tight mt-6 font-montserrat">Celebrate the joy of accomplishment with an app <br className="hidden md:block lg:hidden"/>designed to track your progress, motivate your efforts,<br className="hidden md:block lg:hidden"/> and celebrate your success.</p>
 
             <div className="items-center gap-1 mt-[30px]">
-              <button className="btn rounded-full px-6 py-3" onClick={handleSubmit}>Start Your Sprint Today ⇲</button>
+            <button className="rounded-full px-6 py-3 text-white font-semibold text-base bg-gradient-to-r from-[#ff3131] to-[#ff914d] hover:bg-[#ff3131]" onClick={handleSubmit}>
+  Start Your Sprint Today ⇲
+</button>
+
             </div>
           </div>
         
