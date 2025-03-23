@@ -45,8 +45,8 @@ const Homie = () => {
               onClick={() => section.route && router.push(section.route)}
               className="section-body flex items-center justify-between bg-gray-100 p-4 rounded-lg border border-gray-300 hover:border-orange-600 cursor-pointer transition"
             >
-              <span className="text-white text-xl">SECTION {index + 1}: {section.title}</span>
-              <Image src={section.img} alt={`section${index + 1}`} className="h-12 w-12 rounded-lg" />
+              <span className="text-white text-xl font-mono font-bold">SECTION {index + 1}: {section.title}</span>
+              <Image src={section.img} alt={`section${index + 1}`} className="h-20 w-20 rounded-lg" />
             </div>
           ))}
         </div>
