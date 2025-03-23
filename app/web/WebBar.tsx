@@ -28,7 +28,7 @@ export const WebBar = () => {
           {[
             { icon: homeIcon, label: 'Home', path: '/web/home' },
             { icon: sectionsIcon, label: 'Sections', path: '/web/sections' },
-            { icon: progressIcon, label: 'Progress', path: '#' },
+            { icon: progressIcon, label: 'Progress', path: '/web/progress' },
             { icon: profileIcon, label: 'Profile', path: '/web/profilepage' },
             { icon: moreIcon, label: 'More', path: '#' },
           ].map(({ icon, label, path }, index) => (
