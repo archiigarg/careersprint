@@ -4,41 +4,41 @@ import { WebBar } from "../WebBar";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-200 to-orange-50 text-gray-900">
-      <WebBar/>
-      <section className="text-center py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-orange-100 text-orange-700 px-4 py-2 inline-block rounded-full text-sm mb-4">
-            Take Full Control of Your Task
+    <div className="min-h-screen text-gray-900 flex">
+      {/* Sidebar WebBar */}
+      <div className="w-16 md:w-20 lg:w-24 h-screen fixed left-0 top-0 z-20 bg-white shadow-md">
+        <WebBar />
+      </div>
+      
+      {/* Main Content */}
+      <div className="flex-1 ml-16 md:ml-20 lg:ml-24">
+        <section className="min-h-screen relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-orange-50 z-0">
+            <div 
+              className="absolute right-0 top-0 w-full h-full opacity-50 bg-contain bg-right-top bg-no-repeat"
+              style={{ backgroundImage: "url('https://www.proteen.com/wp-content/uploads/2023/09/new_home_09-2023-1.jpg')" }}
+            ></div>
           </div>
-          <h1 className="text-4xl font-bold mb-4">Empowering Teams, One Task at a Time, Every Day</h1>
-          <p className="text-gray-600 mb-6">
-            Mondai was created to meet the need for a fast, intuitive, and flexible task management platform that helps teams achieve maximum productivity.
-          </p>
-          <div className="space-x-4">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6">Download App</Button>
-            <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-100">Talk to Sales</Button>
+          
+          <div className="relative z-10 flex items-center justify-center h-screen px-6">
+            <div className="text-center max-w-3xl mx-auto">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-snug">
+                An Integrated, Intelligent, Data-Driven Solution For Every Career Counselling Need
+              </h1>
+              
+              <div className="text-base text-gray-700 mb-6">
+                <p>Career Guidance & Counselling | Psychometric Assessments |</p>
+                <p>Personalised Reports | Career Demos |</p>
+                <p>Powerful Dashboard & Analytics for Schools & Institutes | Counsellor Training</p>
+              </div>
+              
+              <Button className="bg-orange-500 text-white px-8 py-4 text-base rounded-md border-2 border-transparent hover:bg-transparent hover:border-orange-500 hover:text-orange-500">
+                Get Started
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center py-12 px-6 bg-white shadow-md max-w-5xl mx-auto rounded-lg">
-        <div>
-          <h2 className="text-2xl font-bold">2015+</h2>
-          <p className="text-gray-600">Product release</p>
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold">1500+</h2>
-          <p className="text-gray-600">People building</p>
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold">500+</h2>
-          <p className="text-gray-600">Countries use Mondai</p>
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold">300K+</h2>
-          <p className="text-gray-600">Customers rely on us</p>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }
