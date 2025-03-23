@@ -3,6 +3,7 @@ import { WebBar } from '../WebBar';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import mileStone from "@/public/milestoneicon.svg";
+import YouTubeSidebar from '@/app/components/YoutubeSideBar';
 interface Task {
   label: string;
   completed: boolean;
@@ -108,6 +109,12 @@ const SoftSkills: React.FC = () => {
             </div>
           </div>
         </div>
+        <div className='flex flex-col items-center justify-center '>
+          
+          
+          <YouTubeSidebar queries={["soft skills"]} />
+  
+            </div>
       </div>
     </section>
   );

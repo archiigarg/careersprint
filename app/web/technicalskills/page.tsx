@@ -115,7 +115,8 @@ const Technical: React.FC = () => {
         <div className='flex flex-col items-center justify-center '>
           
           
-            <YouTubeSidebar />
+        <YouTubeSidebar queries={["technical skills"]} />
+
           </div>
         
       </div>
