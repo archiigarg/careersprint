@@ -28,7 +28,9 @@ export const FeatureCard2: React.FC<FeatureCardProps> = ({
 
 export const Features = () => {
   return (
-    <div className="mt-10 pb-20 md:pt-20 min-h-screen flex flex-col items-center bg-gradient-to-b from-[#fff6e9] to-[#ffe5d2]">
+    <div
+      className="mt-10 pb-20 md:pt-20 min-h-screen flex flex-col items-center bg-white"
+    >
       <h2 className="text-center font-ptserif font-bold text-black text-5xl leading-normal">
         Our{" "}
         <span className="text-transparent bg-gradient-to-b from-[#ff3131] to-[#ff914d] bg-clip-text">
@@ -43,13 +45,11 @@ export const Features = () => {
             title="Learning Paths"
             subtitle="Tailored learning experiences that adapt to your goals and skill levels, guiding you through every step of your career journey."
           />
-
           <FeatureCard2
             number="02"
             title="Skill Development"
             subtitle="Master all aspects of placement preparations with our defined task lists that make you job ready by helping you build a multifaceted portfolio."
           />
-
           <FeatureCard2
             number="03"
             title="Progress Tracking"
