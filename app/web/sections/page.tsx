@@ -30,10 +30,9 @@ const Homie = () => {
         
         <WebBar />
 
-       
         <div className=" mt-10 text-center px-6">
           <h1 className="text-4xl font-semibold text-gray-800 font-mono">
-            Hi there, what's your current focus for the day?
+            Hi there, what&apos;s your current focus for the day?
           </h1>
         </div>
 
@@ -51,7 +50,7 @@ const Homie = () => {
           ))}
         </div>
 
-        {/* Footer */}
+
         <div className="mt-6 text-center pb-6 px-6">
           <p className="text-gray-600 italic">
             Keep learning and improving every day!

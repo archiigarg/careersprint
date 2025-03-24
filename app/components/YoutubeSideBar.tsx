@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-const MAX_RESULTS = 10;
+const MAX_RESULTS = 5;
 
 interface Video {
   id: { videoId?: string; playlistId?: string };
@@ -17,23 +17,17 @@ export default function YouTubeSidebar({ queries }: { queries: string[] }) {
   useEffect(() => {
     async function fetchVideos() {
       try {
-        const videoMap = new Map<string, Video>();
+        const videoList: Video[] = [];
         for (const query of queries) {
           const response = await fetch(
             `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${query}&part=snippet&type=video&order=relevance&maxResults=${MAX_RESULTS}`
           );
           const data = await response.json();
           if (data.items) {
-            data.items.forEach((video: Video) => {
-              const uniqueId = video.id.videoId || video.id.playlistId;
-              if (uniqueId && !videoMap.has(uniqueId)) {
-                videoMap.set(uniqueId, video);
-              }
-            });
+            videoList.push(...data.items);
           }
         }
-        const shuffledVideos = Array.from(videoMap.values()).sort(() => Math.random() - 0.5);
-        setVideos(shuffledVideos);
+        setVideos(videoList);
       } catch (error) {
         console.error("Error fetching YouTube videos:", error);
       }

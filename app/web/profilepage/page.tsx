@@ -17,20 +17,7 @@ const Profile: React.FC = () => {
           <h2 className="text-2xl font-semibold text-gray-800">Yashita Puri</h2>
           <p className="text-gray-500 mt-1">Vellore Institute of Technology, Vellore</p>
         </div>
-        <div className="px-8">
-          <div className="flex justify-between items-center">
-            <span className="text-gray-600 font-medium">PROGRESS</span>
-            <span className="text-orange-600 font-semibold cursor-pointer hover:underline">
-              VIEW DETAILS
-            </span>
-          </div>
-          <div className="mt-2 bg-gray-200 h-4 rounded-full overflow-hidden">
-            <div
-              className="bg-gradient-to-r from-[#ff7b00] to-[#ffaf40] h-full rounded-full"
-              style={{ width: "40%" }}
-            ></div>
-          </div>
-        </div>
+        
         <div className="mt-6 px-8 space-y-3">
           {[
             { platform: "LinkedIn", url: "/linkedin/username" },
