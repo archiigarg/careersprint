@@ -19,7 +19,7 @@ export const Header = () => {
   }
   const router = useRouter();
   const handleSubmit = () => {
-    void router.push("/signup");
+    void router.push("/login");
   };
   return (
     <header>

@@ -1,9 +1,18 @@
 "use client";
 
-import {  useState } from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { useRouter } from "next/navigation";
+import {
+  CardTitle,
+  CardDescription,
+  CardHeader,
+  CardContent,
+  CardFooter,
+  Card,
+} from "@/app/components/ui/card";
+import { Button } from "@/app/components/ui/button";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -52,14 +61,24 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <button
-        onClick={loginWithGoogle}
-        className="px-5 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-      >
-        Login with Google
-      </button>
-      {error && <p className="text-red-500 mt-2">{error}</p>}
+    <div className="flex items-center justify-center min-h-screen px-6">
+      <div className="w-full max-w-4xl shadow-2xl shadow-black rounded-lg flex items-center">
+        <div className="w-1/2">
+          <img src="login.svg" alt="Login Image" className="w-full h-full object-cover rounded-l-lg" />
+        </div>
+        <div className="w-1/2 p-8 flex flex-col justify-center">
+          <CardHeader className="space-y-1 text-center">
+            <CardTitle className="text-3xl font-bold">Login</CardTitle>
+            <CardDescription>Sign in to your account using Google</CardDescription>
+          </CardHeader>
+          <CardContent className="mt-4 flex justify-center">
+            <Button className="bg-orange-500 text-white px-6 py-3 text-sm rounded-md border-2 border-transparent hover:bg-transparent hover:border-orange-500 hover:text-orange-500" onClick={loginWithGoogle}>
+              Login with Google
+            </Button>
+          </CardContent>
+          {error && <p className="text-red-500 mt-2 text-center">{error}</p>}
+        </div>
+      </div>
     </div>
   );
 }

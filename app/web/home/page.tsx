@@ -5,12 +5,11 @@ import { WebBar } from "../WebBar";
 export default function Home() {
   return (
     <div className="min-h-screen text-gray-900 flex">
-      {/* Sidebar WebBar */}
+      
       <div className="w-16 md:w-20 lg:w-24 h-screen fixed left-0 top-0 z-20 bg-white shadow-md">
         <WebBar />
       </div>
       
-      {/* Main Content */}
       <div className="flex-1 ml-16 md:ml-20 lg:ml-24">
         <section className="min-h-screen relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-orange-50 z-0">
@@ -32,9 +31,10 @@ export default function Home() {
                 <p>Powerful Dashboard & Analytics for Schools & Institutes | Counsellor Training</p>
               </div>
               
-              <Button className="bg-orange-500 text-white px-8 py-4 text-base rounded-md border-2 border-transparent hover:bg-transparent hover:border-orange-500 hover:text-orange-500">
-                Get Started
+              <Button className="bg-orange-500 text-white px-6 py-3 text-sm rounded-md border-2 border-transparent hover:bg-transparent hover:border-orange-500 hover:text-orange-500">
+                  Get Started
               </Button>
+
             </div>
           </div>
         </section>

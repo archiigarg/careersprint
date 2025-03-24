@@ -7,7 +7,7 @@ import React from "react";
 export const CTA = () => {
   const router = useRouter();
   const handleSubmit = () => {
-    void router.push("http://localhost:3000/signup");
+    void router.push("http://localhost:3000/login");
   };
   return (
     <section className=" lg:pt-5 lg:pb-10 bg-black md:h-screen ">
