@@ -2,10 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { WebBar } from "../WebBar";
 import { firebaseAuth } from "@/lib/utils";
-interface ApiResponse {
-  message: string;
-  user: User;
-}
 
 interface User {
   _id: string;
@@ -17,25 +13,31 @@ interface User {
   linkedIn: string | null;
   createdAt: string;
   updatedAt: string;
-  __v: number;
 }
 
 const Profile: React.FC = () => {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User | null>(null);
+  const [editMode, setEditMode] = useState<{ [key: string]: boolean }>({});
+  const [formData, setFormData] = useState({
+    lcUsername: "",
+    linkedIn: "",
+    courseraname: "",
+  });
+  const [message, setMessage] = useState<string | null>(null);
+
   useEffect(() => {
-    void fetchUserDetails();
+    fetchUserDetails();
   }, []);
 
   async function fetchUserDetails() {
     let idToken = localStorage.getItem("idToken");
     if (!idToken) {
-      // logout();
-      // return;
-      alert("login");
+      alert("Please log in");
+      return;
     }
 
     try {
-      const userResponse = await fetch("http://localhost:5500/user/", {
+      const response = await fetch("http://localhost:5500/user/", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${idToken}`,
@@ -43,62 +45,54 @@ const Profile: React.FC = () => {
         },
       });
 
-      if (userResponse.status === 401) {
+      if (response.status === 401) {
         console.warn("Token expired, refreshing...");
-        idToken = await firebaseAuth.currentUser!.getIdToken(true); // Refresh token
+        idToken = await firebaseAuth.currentUser!.getIdToken(true);
         if (!idToken) return;
-        return fetchUserDetails(); // Retry with new token
+        return fetchUserDetails();
       }
 
-      const userData: ApiResponse = await userResponse.json();
-
-      setUser(userData.user);
-
-      // userInfoElement.innerText = JSON.stringify(userData, null, 2);
+      const data = await response.json();
+      setUser(data.user);
+      setFormData({
+        lcUsername: data.user.lcUsername || "",
+        linkedIn: data.user.linkedIn || "",
+        courseraname: data.user.courseraname || "",
+      });
     } catch (error) {
       console.error("Error fetching user:", error);
-      // userInfoElement.innerText = "Error: " + error.message;
     }
   }
-  async function attachLeetCode() {
-    const leetcodeUsername = document.getElementById("leetcodeProfile").value;
-    const attachResponse = document.getElementById("attachResponse");
 
-    if (!leetcodeUsername) {
-      attachResponse.innerText = "Please enter a LeetCode username.";
-      return;
-    }
-
-    let idToken = localStorage.getItem("idToken");
-    if (!idToken) {
-      // logout();
-      return;
-    }
+  async function updateUserDetails() {
+    const idToken = localStorage.getItem("idToken");
+    if (!idToken) return;
 
     try {
-      const response = await fetch("http://localhost:5500/user/attachLc", {
+      const response = await fetch("http://localhost:5500/user/attachLC", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${idToken}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ lcUsername: leetcodeUsername }),
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
       if (!response.ok) throw new Error(data.message);
 
-      attachResponse.innerText = "LeetCode profile attached successfully!";
-      setTimeout(() => window.location.reload(), 1000); // Reload page on success
-    } catch (error) {
-      console.error("Error attaching LeetCode profile:", error);
-      attachResponse.innerText = "Error: " + error.message;
+      setMessage("Profile updated successfully!");
+      setUser((prev) => (prev ? { ...prev, ...formData } : null));
+      setEditMode({});
+    } catch (error: any) {
+      console.error("Error updating profile:", error);
+      setMessage("Error: " + error.message);
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-orange-50 ">
-      <div className="bg-white shadow-xl rounded-3xl overflow-hidden w-full max-w-4xl ">
+    <div className="min-h-screen flex items-center justify-center bg-orange-50">
+      <div className="bg-white shadow-xl rounded-3xl overflow-hidden w-full max-w-4xl">
         <div className="relative bg-gradient-to-r from-[#ff7b00] to-[#ffaf40] h-20"></div>
 
         <WebBar />
@@ -112,27 +106,48 @@ const Profile: React.FC = () => {
 
         <div className="mt-6 px-8 space-y-3 mb-10">
           {[
-            { platform: "LinkedIn", url: "/linkedin/username" },
-            { platform: "LeetCode", url: "/leetcode/username" },
-            { platform: "Coursera", url: "/coursera/account" },
-          ].map((item) => (
+            { platform: "LinkedIn", key: "linkedIn" },
+            { platform: "LeetCode", key: "lcUsername" },
+            { platform: "Coursera", key: "courseraname" },
+          ].map(({ platform, key }) => (
             <div
-              key={item.platform}
+              key={platform}
               className="flex justify-between items-center bg-gray-100 p-3 rounded-lg border border-gray-300 hover:border-orange-600 transition"
             >
-              <input
-                type="text"
-                id="leetcodeProfile"
-                placeholder="Enter LeetCode Username"
-              />
-              <button onClick="attachLeetCode()">Attach </button>
-              <p id="attachResponse"></p>
-              <span className="text-orange-600 font-semibold cursor-pointer hover:underline">
-                {item.url}
-              </span>
+              {editMode[key] ? (
+                <input
+                  type="text"
+                  value={formData[key as keyof typeof formData]}
+                  onChange={(e) =>
+                    setFormData({ ...formData, [key]: e.target.value })
+                  }
+                  className="w-full p-2 rounded-lg border focus:ring-2 focus:ring-orange-600 text-black"
+                  placeholder={`Enter your ${platform} username`}
+                />
+              ) : (
+                <span className="text-gray-700">
+                  {formData[key as keyof typeof formData] || `No ${platform} linked`}
+                </span>
+              )}
+
+              <button
+                onClick={() => {
+                  if (editMode[key]) updateUserDetails();
+                  setEditMode({ ...editMode, [key]: !editMode[key] });
+                }}
+                className="ml-4 px-4 py-2 bg-orange-600 text-white rounded-lg"
+              >
+                {editMode[key] ? "Save" : "Edit"}
+              </button>
             </div>
           ))}
         </div>
+
+        {message && (
+          <div className="text-center text-green-600 font-semibold mt-4">
+            {message}
+          </div>
+        )}
       </div>
     </div>
   );

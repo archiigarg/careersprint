@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import homeIcon from '@/public/homeicon.svg';
@@ -6,15 +6,68 @@ import sectionsIcon from '@/public/sectionsicon.svg';
 import progressIcon from '@/public/progressicon.svg';
 import profileIcon from '@/public/profileicon.svg';
 import moreIcon from '@/public/moreicon.svg';
-
+import { firebaseAuth } from "@/lib/utils";
+interface User {
+  _id: string;
+  uid: string;
+  email: string;
+  name: string;
+  lcUsername: string | null;
+  courseraname: string | null;
+  linkedIn: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
 export const WebBar = () => {
   const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
-
+  
   const navigate = (path: string) => {
     void router.push(path);
   };
+  const [user, setUser] = useState<User>();
+  const [formData, setFormData] = useState({
+    lcUsername: "",
+    linkedIn: "",
+    courseraname: "",
+  });
+  const fetchUserDetails = async (): Promise<void> => {
+    let idToken = localStorage.getItem("idToken");
+    if (!idToken) {
+      alert("Please log in");
+      return;
+    }
 
+    try {
+      const response = await fetch("http://localhost:5500/user/", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.status === 401) {
+        console.warn("Token expired, refreshing...");
+        idToken = await firebaseAuth.currentUser!.getIdToken(true);
+        if (!idToken) return;
+        return fetchUserDetails();
+      }
+
+      const data = await response.json();
+      setUser(data.user);
+      setFormData({
+        lcUsername: data.user.lcUsername || "",
+        linkedIn: data.user.linkedIn || "",
+        courseraname: data.user.courseraname || "",
+      });
+    } catch (error) {
+      console.error("Error fetching user:", error);
+    }
+  }
+  useEffect(()=>{
+    void fetchUserDetails();
+  },[]);
   return (
     <aside
       className={`fixed top-0 left-0 h-screen bg-white border-r-2 border-gray-300 transition-all duration-300 ${isExpanded ? 'w-72' : 'w-24'} font-mono`} 
@@ -45,7 +98,7 @@ export const WebBar = () => {
         
         <div className="mt-auto flex items-center w-full px-6 pb-8">
           <Image src={profileIcon} alt="User" className="h-16 w-16 rounded-full" />
-          {isExpanded && <span className="ml-4 text-lg font-medium">Your Name</span>}
+          {isExpanded && <span className="ml-4 text-lg font-medium">{user?.name}</span>}
         </div>
       </div>
     </aside>
