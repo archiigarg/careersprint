@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export const Hero = () => {
   const router = useRouter();
   const handleSubmit = () => {
-    void router.push("http://localhost:3000/login");
+    void router.push("https://career-sprint-backend.vercel.app/login");
   };
   return (
     <section className=" md:pt-10 md:pb-2 bg-black h-screen overflow-hidden">

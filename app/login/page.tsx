@@ -25,7 +25,7 @@ export default function LoginPage() {
       const idToken = await user.getIdToken();
 
       // Send token to backend
-      const loginResponse = await fetch("http://localhost:5500/user/login", {
+      const loginResponse = await fetch("https://career-sprint-backend.vercel.app/user/login", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${idToken}`,
