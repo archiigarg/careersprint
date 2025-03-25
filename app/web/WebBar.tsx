@@ -7,6 +7,7 @@ import progressIcon from '@/public/progressicon.svg';
 import profileIcon from '@/public/profileicon.svg';
 import moreIcon from '@/public/moreicon.svg';
 import { firebaseAuth } from "@/lib/utils";
+
 interface User {
   _id: string;
   uid: string;
@@ -15,9 +16,11 @@ interface User {
   lcUsername: string | null;
   courseraname: string | null;
   linkedIn: string | null;
+  gfgUsername: string | null;
   createdAt: string;
   updatedAt: string;
 }
+
 export const WebBar = () => {
   const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -25,12 +28,15 @@ export const WebBar = () => {
   const navigate = (path: string) => {
     void router.push(path);
   };
+  
   const [user, setUser] = useState<User>();
   const [formData, setFormData] = useState({
     lcUsername: "",
     linkedIn: "",
     courseraname: "",
+    gfgUsername: "",
   });
+
   const fetchUserDetails = async (): Promise<void> => {
     let idToken = localStorage.getItem("idToken");
     if (!idToken) {
@@ -60,14 +66,17 @@ export const WebBar = () => {
         lcUsername: data.user.lcUsername || "",
         linkedIn: data.user.linkedIn || "",
         courseraname: data.user.courseraname || "",
+        gfgUsername: data.user.gfgUsername || "",
       });
     } catch (error) {
       console.error("Error fetching user:", error);
     }
   }
+
   useEffect(()=>{
     void fetchUserDetails();
   },[]);
+
   return (
     <aside
       className={`fixed top-0 left-0 h-screen bg-white border-r-2 border-gray-300 transition-all duration-300 ${isExpanded ? 'w-72' : 'w-24'} font-mono`} 
@@ -96,10 +105,10 @@ export const WebBar = () => {
           ))}
         </nav>
         
-        <div className="mt-auto flex items-center w-full px-6 pb-8">
+        <div className="mt-auto flex flex-col items-center w-full px-6 pb-8 text-center">
           <Image src={profileIcon} alt="User" className="h-16 w-16 rounded-full" />
-          {isExpanded && <span className="ml-4 text-lg font-medium">{user?.name}</span>}
-        </div>
+          {isExpanded && <span className="mt-2 text-lg font-medium">{user?.name}</span>}
+         </div>
       </div>
     </aside>
   );

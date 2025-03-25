@@ -55,6 +55,21 @@ export const Features = () => {
             title="Progress Tracking"
             subtitle="Track your development across all key areas with our milestone-based system, ensuring you are fully prepared for placement day."
           />
+          <FeatureCard2
+            number="04"
+            title="Mock Interviews"
+            subtitle="Prepare for real interviews with mock sessions, personalized feedback, and expert tips to boost your confidence and performance."
+          />
+          <FeatureCard2
+            number="05"
+            title="Resume Building"
+            subtitle="Craft a professional resume with expert guidance, ensuring you stand out in the competitive job market."
+          />
+          <FeatureCard2
+            number="06"
+            title="Placement Assistance"
+            subtitle="Get access to exclusive job postings, internships, and placement support to kickstart your career journey."
+          />
         </div>
       </div>
     </div>

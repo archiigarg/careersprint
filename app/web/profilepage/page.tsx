@@ -11,6 +11,7 @@ interface User {
   lcUsername: string | null;
   courseraname: string | null;
   linkedIn: string | null;
+  gfgUsername: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -22,6 +23,7 @@ const Profile: React.FC = () => {
     lcUsername: "",
     linkedIn: "",
     courseraname: "",
+    gfgUsername: "",
   });
   const [message, setMessage] = useState<string | null>(null);
 
@@ -58,6 +60,7 @@ const Profile: React.FC = () => {
         lcUsername: data.user.lcUsername || "",
         linkedIn: data.user.linkedIn || "",
         courseraname: data.user.courseraname || "",
+        gfgUsername: data.user.gfgUsername || "",
       });
     } catch (error) {
       console.error("Error fetching user:", error);
@@ -109,6 +112,7 @@ const Profile: React.FC = () => {
             { platform: "LinkedIn", key: "linkedIn" },
             { platform: "LeetCode", key: "lcUsername" },
             { platform: "Coursera", key: "courseraname" },
+            { platform: "GeeksforGeeks", key: "gfgUsername" },
           ].map(({ platform, key }) => (
             <div
               key={platform}

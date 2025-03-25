@@ -1,14 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import logoImage from "@/public/logo.svg";
 
 const footerLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Features", href: "/features" },
-  { label: "Register", href: "/register" },
+  { label: "About Us", href: "/" },
+  { label: "Features", href: "/" },
+  { label: "Register", href: "/" },
 ];
 
 export const Footer = () => {

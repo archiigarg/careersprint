@@ -1,8 +1,11 @@
 "use client"
 import { Button } from "@/app/components/ui/button";
 import { WebBar } from "../WebBar";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen text-gray-900 flex">
       
@@ -31,8 +34,11 @@ export default function Home() {
                 <p>Powerful Dashboard & Analytics for Schools & Institutes | Counsellor Training</p>
               </div>
               
-              <Button className="bg-orange-500 text-white px-6 py-3 text-sm rounded-md border-2 border-transparent hover:bg-transparent hover:border-orange-500 hover:text-orange-500">
-                  Get Started
+              <Button
+                className="bg-orange-500 text-white px-6 py-3 text-sm rounded-md border-2 border-transparent hover:bg-transparent hover:border-orange-500 hover:text-orange-500"
+                onClick={() => router.push("/web/profilepage")}
+              >
+                Get Started
               </Button>
 
             </div>
