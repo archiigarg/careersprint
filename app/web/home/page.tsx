@@ -9,6 +9,7 @@ export default function Home() {
   return (
     <div className="min-h-screen text-gray-900 flex">
       
+      
       <div className="w-16 md:w-20 lg:w-24 h-screen fixed left-0 top-0 z-20 bg-white shadow-md">
         <WebBar />
       </div>

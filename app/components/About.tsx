@@ -57,9 +57,9 @@ export const About = () => {
               variants={textVariants}
               className="text-lg font-inter text-gray-300 leading-relaxed"
             >
-              We understand your journey. That's why 
+              We understand your journey. That&apos;s why 
               <span className="text-transparent bg-gradient-to-r from-[#ff6b1c] to-[#ff914d] bg-clip-text font-bold"> CareerSprint</span> 
-              exists – to transform uncertainty into opportunity.
+              exists &apos; to transform uncertainty into opportunity.
             </motion.p>
             
             <motion.p 
