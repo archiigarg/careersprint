@@ -1,32 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {
   CardTitle,
   CardDescription,
   CardHeader,
   CardContent,
-  CardFooter,
-  Card,
 } from "@/app/components/ui/card";
 import { Button } from "@/app/components/ui/button";
+import { firebaseAuth} from '@/lib/utils'
 
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyC1d1GjpL-dgC-TenU7Bt9iWqmZUB5AqPM",
-  authDomain: "signsync-a13bd.firebaseapp.com",
-  projectId: "signsync-a13bd",
-  storageBucket: "signsync-a13bd.appspot.com",
-  messagingSenderId: "197353783576",
-  appId: "1:197353783576:web:afec42965efcb524af5e6d",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 export default function LoginPage() {
@@ -35,7 +20,7 @@ export default function LoginPage() {
 
   const loginWithGoogle = async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(firebaseAuth, provider);
       const user = result.user;
       const idToken = await user.getIdToken();
 
@@ -50,7 +35,7 @@ export default function LoginPage() {
 
       const loginData = await loginResponse.json();
       if (!loginResponse.ok) throw new Error(loginData.message);
-
+      console.log(loginData);
       // Store token & redirect
       localStorage.setItem("idToken", idToken);
       localStorage.setItem("refreshTime", (Date.now() + 55 * 60 * 1000).toString());

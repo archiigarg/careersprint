@@ -8,16 +8,14 @@ interface Task {
   }
 export default function TasksCard({task,name}:{task:Task[];name:string}) {
     const [tasks, setTasks] = useState<Task[]>(task);
-    useEffect(()=>{
-    console.log(tasks);
-},[tasks]);
+    
   const handleCheckboxChange = (index: number) => {
     const newTasks = [...tasks];
     newTasks[index].completed = !newTasks[index].completed;
     setTasks(newTasks);
   };
   return (
-    <div className=" flex flex-col py-16 ml-24 px-10 w-[72%]">
+    <div className=" flex flex-col py-10 ml-24 px-10 w-[72%]">
         <div className="bg-gradient-to-r from-[#ff3131] to-[#ff914d] rounded-full py-2 px-8 w-[400px] mb-8">
           <h1 className="text-white text-lg font-semibold">{name}</h1>
         </div>

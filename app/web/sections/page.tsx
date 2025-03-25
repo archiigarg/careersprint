@@ -17,7 +17,7 @@ const Homie = () => {
   const sections = [
     { title: "Technical Skills", img: section1Img, route: "/web/technicalskills" },
     { title: "Soft Skills", img: section2Img, route: "/web/softskills" },
-    { title: "Project Experience", img: section3Img, route: "" },
+    { title: "Project Experience", img: section3Img, route: "/web/projectexperience" },
     { title: "Interview Preparation", img: section4Img, route: "/web/interviewpreparation" },
     { title: "Certifications", img: section5Img, route: "/web/certifications" },
     { title: "Resume Building", img: section6Img, route: "/web/resumebuilding" },
