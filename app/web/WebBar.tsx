@@ -45,7 +45,7 @@ export const WebBar = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5500/user/", {
+      const response = await fetch("https://career-sprint-backend.vercel.app/user/", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${idToken}`,
