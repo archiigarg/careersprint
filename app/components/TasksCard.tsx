@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import AddTask from './AddTask';
+import { IdCardIcon } from 'lucide-react';
 interface Task {
     label: string;
     completed: boolean;
@@ -9,10 +10,12 @@ interface Task {
 export default function TasksCard({task,name,id}:{task:Task[];name:string,id:string}) {
     const [tasks, setTasks] = useState<Task[]>(task);
     
-  const handleCheckboxChange = (index: number) => {
-    const newTasks = [...tasks];
-    newTasks[index].completed = !newTasks[index].completed;
-    setTasks(newTasks);
+    const handleCheckboxChange = (index: number) => {
+      const updatedTasks = [...tasks];
+      updatedTasks[index].completed = !updatedTasks[index].completed;
+      
+      setTasks(updatedTasks);
+      localStorage.setItem(`tasks-${id}`, JSON.stringify(updatedTasks));
   };
   return (
     <div className=" flex flex-col py-10 ml-24 px-10 w-[72%]">
