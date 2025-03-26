@@ -13,13 +13,13 @@ export const FeatureCard2: React.FC<FeatureCardProps> = ({
   subtitle,
 }) => {
   return (
-    <div
-      className="relative bg-white shadow-lg rounded-xl p-6 w-90 flex flex-col gap-3 border border-gray-200 transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-600 group"
-    >
+    <div className="relative bg-white shadow-lg rounded-xl p-6 w-90 flex flex-col gap-3 border border-gray-200 transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-600 group">
       <span className="text-black font-semibold text-2xl group-hover:text-orange-500 transition-colors duration-300">
         {number}
       </span>
-      <h3 className="text-3xl font-bold text-black group-hover:text-orange-500">{title}</h3>
+      <h3 className="text-3xl font-bold text-black group-hover:text-orange-500">
+        {title}
+      </h3>
       <p className="text-gray-600 text-xl">{subtitle}</p>
       <div className="absolute w-4 h-4 bg-black rounded-full top-2 left-2 shadow-md group-hover:bg-orange-500 transition-colors duration-300"></div>
     </div>
@@ -28,9 +28,7 @@ export const FeatureCard2: React.FC<FeatureCardProps> = ({
 
 export const Features = () => {
   return (
-    <div
-      className="pb-20 md:pt-20 min-h-screen flex flex-col items-center bg-black"
-    >
+    <div className="pb-20 md:pt-20 min-h-screen flex flex-col items-center bg-black">
       <h2 className="text-white text-8xl font-black">
         Our{" "}
         <span className="text-transparent bg-gradient-to-b from-[#ff3131] to-[#ff914d] bg-clip-text">
@@ -57,8 +55,8 @@ export const Features = () => {
           />
           <FeatureCard2
             number="04"
-            title="Mock Interviews"
-            subtitle="Prepare for real interviews with mock sessions, personalized feedback, and expert tips to boost your confidence and performance."
+            title="Data Aggregation"
+            subtitle="Get data from educational websites like LeetCode and GeeksForGeeks to track progress, analyze performance, and enhance your learning journey."
           />
           <FeatureCard2
             number="05"
@@ -66,9 +64,9 @@ export const Features = () => {
             subtitle="Craft a professional resume with expert guidance, ensuring you stand out in the competitive job market."
           />
           <FeatureCard2
-            number="06"
-            title="Placement Assistance"
-            subtitle="Get access to exclusive job postings, internships, and placement support to kickstart your career journey."
+            number="04"
+            title="Recommended Videos"
+            subtitle="Watch curated video recommendations alongside tasks to reinforce concepts and enhance learning efficiency."
           />
         </div>
       </div>
