@@ -28,7 +28,7 @@ export const About = () => {
       </div>
       <div className="flex items-center justify-between w-full ">
        
-        <div className="md:w-1/2 flex justify-center md:justify-start relative ml-20">
+        <div className="md:w-1/2 flex justify-center md:justify-start relative ml-2">
           <div className="relative w-full max-w-7xl">
             <Image 
               src={aboutImage} 

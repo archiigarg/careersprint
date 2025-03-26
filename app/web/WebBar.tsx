@@ -92,7 +92,7 @@ export const WebBar = () => {
             { icon: sectionsIcon, label: 'Sections', path: '/web/sections' },
             { icon: progressIcon, label: 'Progress', path: '/web/progress' },
             { icon: profileIcon, label: 'Profile', path: '/web/profilepage' },
-            { icon: moreIcon, label: 'More', path: '#' },
+            
           ].map(({ icon, label, path }, index) => (
             <button
               key={index}
