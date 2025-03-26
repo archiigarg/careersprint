@@ -14,13 +14,13 @@ export const FeatureCard2: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <div
-      className="relative bg-white shadow-lg rounded-xl p-6 w-80 flex flex-col gap-3 border border-gray-200 transition-transform duration-300 hover:scale-105 hover:shadow-2xl group"
+      className="relative bg-white shadow-lg rounded-xl p-6 w-90 flex flex-col gap-3 border border-gray-200 transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-600 group"
     >
-      <span className="text-black font-semibold text-xl group-hover:text-orange-500 transition-colors duration-300">
+      <span className="text-black font-semibold text-2xl group-hover:text-orange-500 transition-colors duration-300">
         {number}
       </span>
-      <h3 className="text-lg font-bold text-black">{title}</h3>
-      <p className="text-gray-600 text-sm">{subtitle}</p>
+      <h3 className="text-3xl font-bold text-black group-hover:text-orange-500">{title}</h3>
+      <p className="text-gray-600 text-xl">{subtitle}</p>
       <div className="absolute w-4 h-4 bg-black rounded-full top-2 left-2 shadow-md group-hover:bg-orange-500 transition-colors duration-300"></div>
     </div>
   );
@@ -29,17 +29,17 @@ export const FeatureCard2: React.FC<FeatureCardProps> = ({
 export const Features = () => {
   return (
     <div
-      className="mt-10 pb-20 md:pt-20 min-h-screen flex flex-col items-center bg-white"
+      className="pb-20 md:pt-20 min-h-screen flex flex-col items-center bg-black"
     >
-      <h2 className="text-center font-ptserif font-bold text-black text-5xl leading-normal">
+      <h2 className="text-white text-8xl font-black">
         Our{" "}
         <span className="text-transparent bg-gradient-to-b from-[#ff3131] to-[#ff914d] bg-clip-text">
           Features
         </span>
       </h2>
 
-      <div className="mx-auto max-w-screen-lg p-6 pt-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="mx-auto max-w-screen-3xl p-6 pt-10 mt-16 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           <FeatureCard2
             number="01"
             title="Learning Paths"

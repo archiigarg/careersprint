@@ -9,9 +9,9 @@ export const Hero = () => {
     void router.push("/login");
   };
   return (
-    <section className=" md:pt-10 md:pb-2 bg-black h-screen overflow-hidden">
+    <section className=" md:pt-10  bg-black h-screen overflow-hidden">
       
-      <div className="container">
+      <div className="container ml-16">
         
         <div className="flex flex-col md:flex-row items-center px-16 md:pl-6 lg:px-56 lg:pl-16">
           
