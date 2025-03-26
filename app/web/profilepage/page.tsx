@@ -40,7 +40,7 @@ const Profile: React.FC = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5500/user/", {
+      const response = await fetch("https://career-sprint-backend.vercel.app/user/", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${idToken}`,
@@ -73,7 +73,7 @@ const Profile: React.FC = () => {
     if (!idToken) return;
 
     try {
-      const response = await fetch("http://localhost:5500/user/attachLC", {
+      const response = await fetch("https://career-sprint-backend.vercel.app/user/attachLC", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${idToken}`,
