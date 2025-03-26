@@ -27,7 +27,7 @@ export default function YouTubeSidebar({ queries }: { queries: string[] }) {
       const response = await fetch(
         `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&q=${query}&part=snippet&type=video&order=relevance&maxResults=${MAX_RESULTS}`
       );
-      if (response.status === 400) { 
+      if (response.status === 400||403) { 
         apiKeyIndex = (apiKeyIndex + 1) % API_KEYS.length; 
         return fetchVideosWithRetry(query, attempt + 1);
       }
