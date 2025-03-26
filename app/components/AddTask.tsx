@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 interface Task {
   label: string;
   completed: boolean;
@@ -14,19 +15,29 @@ export default function AddTask({
 }) {
   const [newTask, setNewTask] = useState("");
   const [newTime, setNewTime] = useState("");
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks) {
+      setTasks(JSON.parse(storedTasks));
+    }
+    else{
+      setTasks(task);
+    }
+  }, []);
+  
   const addTask = () => {
     if (!newTask.trim() || !newTime.trim()) return;
-
+    
     const isTimeTaken = task.some((task) => task.time === newTime);
-
     if (isTimeTaken) {
       alert(
         "A task with this time already exists. Please choose a different time."
       );
       return;
     }
-
-    setTasks([...task, { label: newTask, completed: false, time: newTime }]);
+    const updatedTasks = [...task, { label: newTask, completed: false, time: newTime }];
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     setNewTask("");
     setNewTime("");
   };
