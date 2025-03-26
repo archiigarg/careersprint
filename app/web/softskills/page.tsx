@@ -36,9 +36,9 @@ const SoftSkills: React.FC = () => {
   return (
     <section className="min-h-screen bg-white ">
       <WebBar />
-      <TasksCard task={communicationTasks} name="Communication Skills" />
-      <TasksCard task={teamworkTasks} name="Teamwork Skills" />
-      <TasksCard task={problemSolvingTasks} name="Problem Solving"/>
+      <TasksCard task={communicationTasks} name="Communication Skills" id="5" />
+      <TasksCard task={teamworkTasks} name="Teamwork Skills" id="6"/>
+      <TasksCard task={problemSolvingTasks} name="Problem Solving" id="7"/>
       <YouTubeSidebar queries={["soft skills"]} />
     </section>
   );

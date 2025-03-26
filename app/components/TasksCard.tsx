@@ -6,7 +6,7 @@ interface Task {
     completed: boolean;
     time: string;
   }
-export default function TasksCard({task,name}:{task:Task[];name:string}) {
+export default function TasksCard({task,name,id}:{task:Task[];name:string,id:string}) {
     const [tasks, setTasks] = useState<Task[]>(task);
     
   const handleCheckboxChange = (index: number) => {
@@ -20,7 +20,7 @@ export default function TasksCard({task,name}:{task:Task[];name:string}) {
           <h1 className="text-white text-lg font-semibold">{name}</h1>
         </div>
         <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-full">
-          <AddTask task={tasks} setTasks={setTasks}/>
+          <AddTask task={tasks} setTasks={setTasks} categoryId={id} />
           <ul className="space-y-4">
             {tasks.map((tasks, index) => (
               <li key={index} className="flex items-center justify-between bg-orange-100 rounded-lg p-4">

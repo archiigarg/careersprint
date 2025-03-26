@@ -24,7 +24,7 @@ const ProjectExperience: React.FC = () => {
   return (
     <section className="min-h-screen bg-white flex">
       <WebBar />
-      <TasksCard task={projectTasks} name="Project Experience" />
+      <TasksCard task={projectTasks} name="Project Experience" id="8"/>
     </section>
   );
 };

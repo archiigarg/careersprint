@@ -44,12 +44,12 @@ const Technical: React.FC = () => {
     <section className="min-h-screen bg-white flex">
       <WebBar />
       <div className="flex-grow flex flex-col">
-        <TasksCard task={coding} name="Coding Challenges" />
-        <TasksCard task={learning} name="Continuous Learning" />
-        <TasksCard task={projects} name="Project Development" />
-        <TasksCard task={technicalSkills} name="Technical Skills Improvement" />
+        <TasksCard task={coding} name="Coding Challenges" id="1"/>
+        <TasksCard task={learning} name="Continuous Learning" id="2" />
+        <TasksCard task={projects} name="Project Development" id="3" />
+        <TasksCard task={technicalSkills} name="Technical Skills Improvement" id="4" />
       </div>
-      <YouTubeSidebar queries={["technical skills development"]} />
+      <YouTubeSidebar queries={["technical skills development"]}  />
     </section>
   );
 };

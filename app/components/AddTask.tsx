@@ -9,35 +9,35 @@ interface Task {
 export default function AddTask({
   task,
   setTasks,
+  categoryId, 
 }: {
   task: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  categoryId: string; // Each task card should have a unique categoryId
 }) {
   const [newTask, setNewTask] = useState("");
   const [newTime, setNewTime] = useState("");
+
   useEffect(() => {
-    const storedTasks = localStorage.getItem("tasks");
+    const storedTasks = localStorage.getItem(`tasks-${categoryId}`);
     if (storedTasks) {
       setTasks(JSON.parse(storedTasks));
     }
-    else{
-      setTasks(task);
-    }
   }, []);
-  
+
   const addTask = () => {
     if (!newTask.trim() || !newTime.trim()) return;
-    
-    const isTimeTaken = task.some((task) => task.time === newTime);
+
+    const isTimeTaken = task.some((t) => t.time === newTime);
     if (isTimeTaken) {
-      alert(
-        "A task with this time already exists. Please choose a different time."
-      );
+      alert("A task with this time already exists. Please choose a different time.");
       return;
     }
+
     const updatedTasks = [...task, { label: newTask, completed: false, time: newTime }];
     setTasks(updatedTasks);
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    localStorage.setItem(`tasks-${categoryId}`, JSON.stringify(updatedTasks));
+
     setNewTask("");
     setNewTime("");
   };

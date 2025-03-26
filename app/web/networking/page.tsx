@@ -25,7 +25,7 @@ const Technical: React.FC = () => {
   return (
     <section className="min-h-screen bg-white flex">
       <WebBar />
-      <TasksCard task={task} name="Networking Skills"/>
+      <TasksCard task={task} name="Networking Skills" id="17"/>
       
     </section>
   );

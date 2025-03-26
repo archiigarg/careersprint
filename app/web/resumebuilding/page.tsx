@@ -35,8 +35,8 @@ const ResumeBuilding: React.FC = () => {
       
         <WebBar/>
 
-        <TasksCard task={contentTasks} name="Content To Add"/>
-        <TasksCard task={designTasks} name="Design Tips"/>
+        <TasksCard task={contentTasks} name="Content To Add" id="15"/>
+        <TasksCard task={designTasks} name="Design Tips" id="16"/>
 
       
     </section>

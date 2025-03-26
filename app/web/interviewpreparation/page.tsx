@@ -34,9 +34,9 @@ const InterviewPreparation: React.FC = () => {
     <section className="min-h-screen bg-white overflow-hidden">
       <WebBar />
 
-      <TasksCard task={companyResearchTasks} name="Company Research" />
-      <TasksCard task={jobRoleTasks} name="Job Role Understanding" />
-      <TasksCard task={technicalInterviewTasks} name="Technical Interview Prep" />
+      <TasksCard task={companyResearchTasks} name="Company Research" id="9" />
+      <TasksCard task={jobRoleTasks} name="Job Role Understanding" id="10"/>
+      <TasksCard task={technicalInterviewTasks} name="Technical Interview Prep" id="11" />
       <YouTubeSidebar queries={["interview preparation"]} />
     </section>
   );

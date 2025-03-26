@@ -33,9 +33,9 @@ const Certifications: React.FC = () => {
     <section className="min-h-screen bg-white overflow-hidden">
       <WebBar />
 
-      <TasksCard task={courseSelectionTasks} name="Course Selection" />
-      <TasksCard task={preparationTasks} name="Preparation" />
-      <TasksCard task={examTasks} name="Exam Readiness" />
+      <TasksCard task={courseSelectionTasks} name="Course Selection" id="12" />
+      <TasksCard task={preparationTasks} name="Preparation" id="13"/>
+      <TasksCard task={examTasks} name="Exam Readiness" id="14" />
     </section>
   );
 };
