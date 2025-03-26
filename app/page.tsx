@@ -1,4 +1,3 @@
-
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Features } from "./components/Features";
@@ -7,11 +6,17 @@ import { Header } from "./components/Header";
 
 export default function Home() {
   return (
-    <div>
-      <Hero></Hero>
-      <Header/>
-      <About></About>
-      <Features />
+    <div className="scroll-smooth">
+      <section id="home">
+        <Hero />
+      </section>
+      <Header />
+      <section id="about-us">
+        <About />
+      </section>
+      <section id="features">
+        <Features />
+      </section>
       <Footer />
     </div>
   );

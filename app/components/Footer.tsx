@@ -1,17 +1,22 @@
-import React from "react";
-import Link from "next/link";
+"use client";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-
+import Link from "next/link";
 import logoImage from "@/public/logo.svg";
 
-const footerLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/" },
-  { label: "Features", href: "/" },
-  { label: "Register", href: "/" },
+const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About Us", href: "#about-us" }, // Fixed ID format
+  { label: "Features", href: "#features" },
 ];
 
 export const Footer = () => {
+  const router = useRouter();
+
+  const handleSubmit = () => {
+    void router.push("/login");
+  };
+
   return (
     <footer className="w-full bg-black text-white py-12 border-t border-gray-800">
       <div className="container mx-auto px-4 space-y-10">
@@ -29,17 +34,18 @@ export const Footer = () => {
             </span>
           </div>
 
-          {/* Navigation Links */}
           <nav className="flex flex-wrap justify-center gap-4 md:gap-8">
-            {footerLinks.map((link) => (
-              <Link 
-                key={link.label} 
-                href={link.href} 
-                className="text-gray-300 hover:text-white transition-colors duration-300 text-sm uppercase tracking-wider"
-              >
+            {navLinks.map((link, index) => (
+              <Link key={index} href={link.href} className="text-gray-300 hover:text-white transition-colors duration-300 text-sm uppercase tracking-wider">
                 {link.label}
               </Link>
             ))}
+            <button
+              onClick={handleSubmit}
+              className="text-gray-300 hover:text-white transition-colors duration-300 text-sm uppercase tracking-wider"
+            >
+              Register
+            </button>
           </nav>
         </div>
         <div className="text-center border-t border-gray-800 pt-6">

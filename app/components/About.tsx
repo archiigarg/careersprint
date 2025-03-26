@@ -21,7 +21,7 @@ export const About = () => {
   };
 
   return (
-    <section className="relative bg-black overflow-hidden flex items-center justify-center h-[90vh] ">
+    <section className="relative bg-black overflow-hidden flex items-center justify-center h-[90vh] " id="aboutus"> 
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#ff6b1c] to-transparent opacity-40 blur-2xl"></div>
         <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#ff6b1c] to-transparent opacity-40 blur-2xl"></div>

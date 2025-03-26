@@ -6,7 +6,12 @@ import React, { useState } from "react";
 import { BsX } from "react-icons/bs";
 import menu from "@/public/menu.svg";
 
-const navlinks = ["Home", "About Us", "Features"] as const;
+const navlinks = [
+  { label: "Home", href: "#home" },
+  { label: "About Us", href: "#about-us" },
+  { label: "Features", href: "#features" },
+] as const;
+
 const STYLES = {
   navLinks:
     "text-white text-base hover:bg-slate-800 rounded-3xl px-4 py-2 my-4 lg:py-1.5 ease-in-out duration-300",
@@ -17,10 +22,12 @@ export const Header = () => {
   function toggleMenu() {
     setMenuOpen(!menuOpen);
   }
+
   const router = useRouter();
   const handleSubmit = () => {
     void router.push("/login");
   };
+
   return (
     <header>
       <div className="fixed left-[4%] top-0 z-20 my-2 w-[92%] rounded-full bg-gray-900 py-2 lg:left-1/4 lg:mx-auto lg:w-1/2">
@@ -31,8 +38,8 @@ export const Header = () => {
             </h1>
             <div className="relative mt-0 hidden space-y-1 p-0 font-montserrat font-medium lg:block">
               {navlinks.map((link, index) => (
-                <Link href="/" key={index} className={STYLES.navLinks}>
-                  {link}
+                <Link key={index} href={link.href} className={STYLES.navLinks}>
+                  {link.label}
                 </Link>
               ))}
             </div>
@@ -69,12 +76,12 @@ export const Header = () => {
               <div className="my-6 flex flex-col items-center justify-between py-4 lg:hidden">
                 {navlinks.map((link, index) => (
                   <Link
-                    href="/"
-                    onClick={() => setMenuOpen(false)}
                     key={index}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
                     className={STYLES.navLinks}
                   >
-                    {link}
+                    {link.label}
                   </Link>
                 ))}
                 <button
