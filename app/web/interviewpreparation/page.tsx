@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import { WebBar } from '../WebBar';
 import TasksCard from '@/app/components/TasksCard';
+import YouTubeSidebar from '@/app/components/YoutubeSideBar';
 
 interface Task {
   label: string;
@@ -36,6 +37,7 @@ const InterviewPreparation: React.FC = () => {
       <TasksCard task={companyResearchTasks} name="Company Research" />
       <TasksCard task={jobRoleTasks} name="Job Role Understanding" />
       <TasksCard task={technicalInterviewTasks} name="Technical Interview Prep" />
+      <YouTubeSidebar queries={["interview preparation"]} />
     </section>
   );
 };

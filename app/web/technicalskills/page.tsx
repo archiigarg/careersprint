@@ -49,7 +49,7 @@ const Technical: React.FC = () => {
         <TasksCard task={projects} name="Project Development" />
         <TasksCard task={technicalSkills} name="Technical Skills Improvement" />
       </div>
-      <YouTubeSidebar queries={["technical skills development", "programming tutorials", "software engineering skills"]} />
+      <YouTubeSidebar queries={["technical skills development"]} />
     </section>
   );
 };

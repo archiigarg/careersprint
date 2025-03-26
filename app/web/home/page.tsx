@@ -26,13 +26,13 @@ export default function Home() {
           <div className="relative z-10 flex items-center justify-center h-screen px-6">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-snug">
-                An Integrated, Intelligent, Data-Driven Solution For Every Career Counselling Need
+                An Integrated, Intelligent Solution For Every Placement and Career Counselling Need
               </h1>
               
               <div className="text-base text-gray-700 mb-6">
-                <p>Career Guidance & Counselling | Psychometric Assessments |</p>
-                <p>Personalised Reports | Career Demos |</p>
-                <p>Powerful Dashboard & Analytics for Schools & Institutes | Counsellor Training</p>
+                <p>Career Guidance & Counselling | Planning and Accessing</p>
+                <p>Personalised Tasks | Career Tips | Recommendated Videos </p>
+                <p>Powerful Dashboard & Analytics for Tracking Various Platforms | Overall Assess</p>
               </div>
               
               <Button
