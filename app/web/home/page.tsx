@@ -57,6 +57,7 @@ export default function Home() {
               >
                 Get Started
               </Button>
+
             </div>
           </div>
         </section>
