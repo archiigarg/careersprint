@@ -6,6 +6,9 @@ CareerSprint is a dynamic web application designed to empower students and job s
 
 [Click here to view the app](https://careersprintwebproject.vercel.app/)
 
+## Backend Repository Link
+https://github.com/archiigarg/CareerSprint-backend
+
 ## 📌 Features
 
 - 🎯 Tailored learning paths based on career goals
